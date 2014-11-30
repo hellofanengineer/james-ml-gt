@@ -118,8 +118,8 @@ public class PrimTester {
 		}
 
 		// create the domain
-//		gridWorld = new PrimGridWorldDomain(11, 11);
-		gridWorld = new PrimGridWorldDomain(22, 22);
+		gridWorld = new PrimGridWorldDomain(11, 11);
+//		gridWorld = new PrimGridWorldDomain(22, 22);
 
 		gridWorld.generatePrimMap(numLocations);
 		gridWorld.setProbSucceedTransitionDynamics(0.8);
