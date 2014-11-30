@@ -63,7 +63,7 @@ public class PrimTester {
 		AnalysisData piData = new AnalysisData(0, 0, 0, 0., 0);
 		AnalysisData qData = new AnalysisData(0, 0, 0, 0., 0);
 		for (int i = 0; i < iterations; i++) {
-			PrimTester test = new PrimTester(4, 20., 5, -.01);
+			PrimTester test = new PrimTester(4, 20., 4, -.01);
 			// System.out.println(String.format("# states: %d",
 			// example.gridWorld.countStates()));
 			String outputPath = "output/";
@@ -118,8 +118,8 @@ public class PrimTester {
 		}
 
 		// create the domain
-		gridWorld = new PrimGridWorldDomain(11, 11);
-//		gridWorld = new PrimGridWorldDomain(22, 22);
+//		gridWorld = new PrimGridWorldDomain(11, 11);
+		gridWorld = new PrimGridWorldDomain(22, 22);
 
 		gridWorld.generatePrimMap(numLocations);
 		gridWorld.setProbSucceedTransitionDynamics(0.8);
@@ -171,7 +171,7 @@ public class PrimTester {
 			outputPath = outputPath + "/";
 		}
 
-		ValueIteration planner = new ValueIteration(domain, rf, tf, 0.99, hashingFactory, 0.001, 100);
+		ValueIteration planner = new ValueIteration(domain, rf, tf, 0.99, hashingFactory, 0.001, 1000);
 		planner.planFromState(initialState);
 
 		// create a Q-greedy policy from the planner
@@ -233,7 +233,7 @@ public class PrimTester {
 		// discount= 0.99; initialQ=0.0; learning rate=0.9
 		QLearning agent = new QLearning(domain, rf, tf, 0.99, hashingFactory, 0., 0.9);
 		agent.setNumEpisodesToStore(100);
-		agent.setMaximumEpisodesForPlanning(1000);
+		agent.setMaximumEpisodesForPlanning(250);
 		// run learning for 100 episodes
 		// EpisodeAnalysis ea = null;
 		long start = System.currentTimeMillis();

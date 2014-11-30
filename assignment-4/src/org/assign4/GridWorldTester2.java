@@ -175,7 +175,7 @@ public class GridWorldTester2 {
 			outputPath = outputPath + "/";
 		}
 
-		ValueIteration planner = new ValueIteration(domain, rf, tf, 0.99, hashingFactory, 0.001, 100);
+		ValueIteration planner = new ValueIteration(domain, rf, tf, 0.99, hashingFactory, 0.001, 1000);
 		planner.planFromState(initialState);
 
 		// create a Q-greedy policy from the planner
